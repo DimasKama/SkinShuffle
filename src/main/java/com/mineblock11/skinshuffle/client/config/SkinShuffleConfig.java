@@ -67,6 +67,13 @@ public class SkinShuffleConfig {
                 (defaults, config, builder) -> {
                     // Rendering Options
 
+                    var skinInterpolationTime = Option.<Float>createBuilder()
+                            .name(Text.translatable("skinshuffle.config.rendering.skin_interpolation_time.name"))
+                            .description(OptionDescription.createBuilder()
+                                    .text(Text.translatable("skinshuffle.config.rendering.skin_interpolation_time.description")).build())
+                            .binding(defaults.skinInterpolationTime, () -> config.skinInterpolationTime, val -> config.skinInterpolationTime = val)
+                            .controller(option -> FloatSliderControllerBuilder.create(option).step(0.1F).range(0.0F, 5.0F)).build();
+
                     var carouselRenderStyle = Option.<SkinRenderStyle>createBuilder()
                             .name(translatable("skinshuffle.config.rendering.carousel_rendering_style.name"))
                             .description(OptionDescription.createBuilder()
@@ -157,7 +164,7 @@ public class SkinShuffleConfig {
                             ).category(ConfigCategory.createBuilder()
                                     .name(translatable("skinshuffle.config.rendering.title"))
                                     .tooltip(translatable("skinshuffle.config.rendering.description"))
-                                    .options(List.of(carouselRenderStyle, presetEditScreenRenderStyle, widgetRenderStyle, rotationMultiplier))
+                                    .options(List.of(skinInterpolationTime, carouselRenderStyle, presetEditScreenRenderStyle, widgetRenderStyle, rotationMultiplier))
                                     .build()
                             ).category(ConfigCategory.createBuilder()
                                     .name(translatable("skinshuffle.config.popups.title"))
@@ -167,6 +174,8 @@ public class SkinShuffleConfig {
                 }
         );
     }
+
+    @ConfigEntry public float skinInterpolationTime = 1.0F;
 
     @ConfigEntry public boolean disableReconnectToast = false;
 

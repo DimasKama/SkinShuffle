@@ -74,6 +74,12 @@ skinshuffle:
       description: "Configuration options regarding how skin presets are rendered in the title screen, pause menu, carousel and edit screens."
       rotation: "Rotation"
       cursor: "Cursor"
+      skin_interpolation_time:
+        name: "Skin Interpolation Time"
+        description: |-
+          Time in seconds during which, after skin refresh, the new player skin texture will smoothly replace the old one
+
+          Zero value disables interpolation
       render_player_capes:
         name: "Render Player Capes"
         description: "Should SkinShuffle render player capes from Mojang, Optifine and Minecraft Capes providers?"

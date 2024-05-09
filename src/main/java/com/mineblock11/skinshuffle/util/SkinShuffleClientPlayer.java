@@ -20,6 +20,10 @@
 
 package com.mineblock11.skinshuffle.util;
 
+import net.minecraft.client.util.SkinTextures;
+
 public interface SkinShuffleClientPlayer {
     void skinShuffle$refreshPlayerListEntry();
+    float skinShuffle$getSkinInterpolationProgress(float interpolationTime);
+    SkinTextures skinShuffle$getPreviousSkinTextures();
 }
