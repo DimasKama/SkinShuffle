@@ -14,6 +14,17 @@
 
 package com.mineblock11.skinshuffle.util;
 
+import net.minecraft.util.Identifier;
+
 public interface SkinShuffleClientPlayer {
     void skinShuffle$refreshPlayerListEntry();
+
+    /*? if <1.20.4 {*/
+    /*Identifier skinShuffle$getPrevSkinTextures();
+    *//*?} else {*/
+    net.minecraft.client.util.SkinTextures skinShuffle$getPrevSkinTextures();
+    /*?}*/
+
+    void skinShuffle$clearPrevSkinTextures();
+    long skinShuffle$getSkinChangeTime();
 }

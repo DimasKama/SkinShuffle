@@ -58,6 +58,8 @@
   "skinshuffle.config.rendering.widget_rendering_style.description": "How should the widget on the title screen and pause screen be rendered?\n",
   "skinshuffle.config.rendering.rotation_speed.name": "Rotation Speed Multiplier",
   "skinshuffle.config.rendering.rotation_speed.description": "What rotation speed multiplier should be applied to skins if rotation is enabled?",
+  "skinshuffle.config.rendering.smooth_skin_change_seconds.name": "Smooth Skin Change Time",
+  "skinshuffle.config.rendering.smooth_skin_change_seconds.description": "Time in seconds, in which the new skin will replace previous one.\nZero value disables smooth skin change",
   "skinshuffle.button": "Skin Presets",
   "skinshuffle.carousel.title": "Skin Presets",
   "skinshuffle.carousel.config_button.tooltip": "Open the config screen.",

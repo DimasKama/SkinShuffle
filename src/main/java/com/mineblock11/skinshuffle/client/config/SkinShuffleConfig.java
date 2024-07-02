@@ -61,6 +61,14 @@ public class SkinShuffleConfig {
                 (defaults, config, builder) -> {
                     // Rendering Options
 
+                    var smoothSkinChange = Option.<Float>createBuilder()
+                            .name(Text.translatable("skinshuffle.config.rendering.smooth_skin_change_seconds.name"))
+                            .description(OptionDescription.createBuilder()
+                                    .text(Text.translatable("skinshuffle.config.rendering.smooth_skin_change_seconds.description")).build())
+                            .binding(defaults.smoothSkinChangeSeconds, () -> config.smoothSkinChangeSeconds, val -> config.smoothSkinChangeSeconds = val)
+                            .controller(floatOption -> FloatSliderControllerBuilder.create(floatOption).range(0f, 5f).step(0.1f))
+                            .build();
+
                     var carouselRenderStyle = Option.<SkinRenderStyle>createBuilder()
                             .name(translatable("skinshuffle.config.rendering.carousel_rendering_style.name"))
                             .description(OptionDescription.createBuilder()
@@ -151,7 +159,7 @@ public class SkinShuffleConfig {
                             ).category(ConfigCategory.createBuilder()
                                     .name(translatable("skinshuffle.config.rendering.title"))
                                     .tooltip(translatable("skinshuffle.config.rendering.description"))
-                                    .options(List.of(carouselRenderStyle, presetEditScreenRenderStyle, widgetRenderStyle, rotationMultiplier))
+                                    .options(List.of(smoothSkinChange, carouselRenderStyle, presetEditScreenRenderStyle, widgetRenderStyle, rotationMultiplier))
                                     .build()
                             ).category(ConfigCategory.createBuilder()
                                     .name(translatable("skinshuffle.config.popups.title"))
@@ -176,6 +184,8 @@ public class SkinShuffleConfig {
     @ConfigEntry public SkinRenderStyle carouselSkinRenderStyle = SkinRenderStyle.ROTATION;
     @ConfigEntry public SkinRenderStyle presetEditScreenRenderStyle = SkinRenderStyle.ROTATION;
     @ConfigEntry public float rotationMultiplier = 1.0f;
+
+    @ConfigEntry public float smoothSkinChangeSeconds = 0.0F;
 
     @ConfigEntry public CarouselView carouselView = CarouselView.LARGE;
 
